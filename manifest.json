@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Review Transformer",
+  "version": "1.0",
+  "description": "An extension that transforms reviews on a webpage",
+  "content_scripts": [
+    {
+      "js": ["ozon.js"],
+      "matches": ["https://www.ozon.ru/*"]
+    }
+  ]
+}
