@@ -8,25 +8,14 @@ const observer = new MutationObserver(mutations => {
                         button.click()
                     })
                     const newSpans = node.querySelectorAll("div[data-widget='webListReviews'] > div > div > div > div > div > div > div:nth-child(2) > span:nth-child(1)");
-                    // do something with the newSpans
-                    // texts = Array.from(newSpans).map(node => node.textContent);
-
-                    // if (texts.length != 0) {
-                    //     console.log(texts)
-                    //     data = {
-                    //         "inputs": texts
-                    //     }
-                    //     console.log(navigator.serviceWorker.controller.postMessage({
-                    //         type: 'summarizeRu',
-                    //         payload: data
-                    //     }));
-                    // }
                     newSpans.forEach(async (span) => {
-                        data = summarizeRu(span.innerHTML).then((text) => {
+                        data = summarizeRu(span.innerHTML).then((json) => {
+                            console.log(json)
+                            span.parentNode.classList.add(json["sentiment"])
                             div = span.parentNode.insertBefore(document.createElement("div"), span)
-                            div.textContent = "💻📃" + text
+                            div.textContent = "💻📃" + json["summarization"]
                             console.log("Отзыв: " + span.innerHTML)
-                            console.log("Обобщение: " + text)
+                            console.log("Обобщение: " + json["summarization"])
                             console.log("-----------")
                         })
                         

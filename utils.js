@@ -11,7 +11,6 @@ if (xhr.status != 200) {
         "API Error": "Couldn`t find API url"
     })
 } else {
-    //alert(xhr.response)
     const json = JSON.parse(xhr.response)
     base_url = new URL(json["tunnels"][0]["public_url"])
     alert(base_url)
@@ -27,26 +26,6 @@ async function summarizeRu(text) {
             "ngrok-skip-browser-warning": "1"
         }
     }).then((response) => {
-        return response.text()
+        return response.json()
     })
-    // xhr = new XMLHttpRequest();
-
-    // xhr.open('POST', url, false);
-    // xhr.setRequestHeader("ngrok-skip-browser-warning", "1")
-
-    // xhr.send();
-    // xhr.onload = function() {
-    //     if (xhr.status != 200) { // HTTP ошибка?
-    //         // обработаем ошибку
-    //         alert('Ошибка: ' + xhr.status);
-    //         return;
-    //     }
-    //     return xhr.response
-    //         // div = span.parentNode.insertBefore(document.createElement("div"), span)
-    //         // div.textContent = "💻📃" + xhr.response
-
-    //     // console.log("Отзыв: " + span.innerHTML)
-    //     // console.log("Обобщение: " + xhr.response)
-    //     // console.log("-----------")
-    // };
 }

@@ -1,0 +1,15 @@
+.negative {
+    background: crimson;
+    color: white;
+    border-radius: 5px;
+}
+
+.positive {
+    background: lightgreen;
+    border-radius: 5px;
+}
+
+.neutral {
+    background: antiquewhite;
+    border-radius: 5px;
+}
