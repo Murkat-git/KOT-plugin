@@ -16,9 +16,24 @@ if (xhr.status != 200) {
     alert(base_url)
 }
 
+const removeEmojis = (text) => {
+    if (!text) {
+        return '';
+    }
+    return text.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
+}
+
+const removeSpecialCharacters = (text) => {
+    return text.replace(/[&]nbsp[;]/gi," ")
+}
+
+const formatText = (text) => {
+    return removeSpecialCharacters(removeEmojis(text));
+}
+
 async function summarizeRu(text) {
     url = new URL("ru", base_url)
-    url.searchParams.set("text", text)
+    url.searchParams.set("text", formatText(text))
     return await fetch(url, {
         method: "POST",
         mode: "cors",
@@ -29,3 +44,4 @@ async function summarizeRu(text) {
         return response.json()
     })
 }
+

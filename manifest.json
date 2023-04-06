@@ -8,6 +8,16 @@
       "js": ["utils.js", "ozon.js"],
       "matches": ["https://www.ozon.ru/*"],
       "css": ["sentiment.css"]
+    },
+    {
+      "js": ["utils.js", "ymarket.js"],
+      "matches": ["https://market.yandex.ru/*"],
+      "css": ["sentiment.css"]
+    },
+    {
+      "js": ["utils.js", "wildberries.js"],
+      "matches": ["https://www.wildberries.ru/*"],
+      "css": ["sentiment.css"]
     }
   ]
 }
