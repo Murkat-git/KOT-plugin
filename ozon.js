@@ -13,7 +13,7 @@ const observer = new MutationObserver(mutations => {
                             console.log(json)
                             span.parentNode.classList.add(json["sentiment"])
                             div = span.parentNode.insertBefore(document.createElement("div"), span)
-                            div.textContent = "💻📃" + json["summarization"]
+                            div.innerHTML = formatText(json["summarization"])
                             console.log("Отзыв: " + span.innerHTML)
                             console.log("Обобщение: " + json["summarization"])
                             console.log("-----------")

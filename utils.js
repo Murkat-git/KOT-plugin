@@ -27,13 +27,17 @@ const removeSpecialCharacters = (text) => {
     return text.replace(/[&]nbsp[;]/gi," ")
 }
 
-const formatText = (text) => {
+const processText = (text) => {
     return removeSpecialCharacters(removeEmojis(text));
+}
+
+function formatText(text) {
+    return "💻📃" + text + '<hr noshade="" color="white">'
 }
 
 async function summarizeRu(text) {
     url = new URL("ru", base_url)
-    url.searchParams.set("text", formatText(text))
+    url.searchParams.set("text", processText(text))
     return await fetch(url, {
         method: "POST",
         mode: "cors",

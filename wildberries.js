@@ -5,7 +5,7 @@ process = (node) => {
             console.log(json)
             review.parentNode.classList.add(json["sentiment"])
             div = review.parentNode.insertBefore(document.createElement("div"), review)
-            div.textContent = "💻📃" + json["summarization"]
+            div.innerHTML = formatText(json["summarization"])
             console.log("Отзыв: " + review.innerHTML)
             console.log("Обобщение: " + json["summarization"])
             console.log("-----------")
